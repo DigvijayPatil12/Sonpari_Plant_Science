@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonpari Plant Science | Premium Agricultural Solutions</title>
+    <style>
+        :root {
+            --primary: #166534;
+            --primary-light: #22c55e;
+            --accent: #eab308;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+            --card-bg: #ffffff;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 12px 20px;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-container img {
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .nav-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #14532d 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #dcfce7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin: 40px 0 25px;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: #cbd5e1;
+            margin-left: 15px;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: 1fr; /* Mobile default */
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* Product Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+
+        /* Info Poster Containers (For Larvicides) */
+        .poster-container {
+            width: 100%;
+            background: #000; /* Dark background to make posters pop */
+        }
+        
+        .poster-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Standard Image Containers (For Growth Products) */
+        .card-img-container {
+            padding: 20px;
+            background: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 220px;
+        }
+
+        .card-img-container img {
+            max-height: 180px;
+            width: auto;
+            border-radius: 8px;
+            mix-blend-mode: multiply; /* Removes white background from jpegs if any */
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .badge.larvicide { background: #fee2e2; color: #991b1b; }
+        .badge.growth { background: #dcfce7; color: #166534; }
+        .badge.activator { background: #e0f2fe; color: #0284c7; }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .dose-highlight {
+            display: inline-block;
+            background: #fef9c3;
+            color: #854d0e;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            border: 1px solid #fde047;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Featured Card: Root Developer */
+        .featured-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid var(--primary);
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .featured-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .spec-box h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            margin: 20px 0 10px;
+        }
+
+        .spec-list {
+            list-style: none;
+        }
+
+        .spec-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .spec-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-brand h2 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 767px) {
+            .nav-container { justify-content: center; }
+            .hero { padding: 40px 15px; }
+            .hero h2 { font-size: 1.75rem; }
+            .card-title { font-size: 1.25rem; }
+            .featured-card { padding: 20px 15px; border-left-width: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <img src="logo.jpeg" alt="Sonpari Plant Science Logo">
+            <div class="nav-title">Sonpari Plant Science</div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h2>Innovative Agricultural Solutions</h2>
+        <p>Providing top-tier crop protection, advanced nutrition, and robust root development for higher-yielding harvests.</p>
+    </section>
+
+    <div class="container">
+        
+        <!-- Larvicides Section -->
+        <h2 class="section-title">Larvicides (अळीनाशक)</h2>
+        <div class="grid grid-2">
+            <!-- Oskar -->
+            <div class="card">
+                <div class="poster-container">
+                    <img src="Oscar poster.jpeg" alt="Oskar Larvicide Information Poster">
+                </div>
+                <div class="card-content">
+                    <span class="badge larvicide">Crop Protection</span>
+                    <h3 class="card-title">Oskar Larvicide</h3>
+                    <div class="dose-highlight">Dose: 25 ML / 15 Liters of Water</div>
+                    <p class="card-desc">A powerful, broad-spectrum larvicide providing highly effective control against Armyworm (Lashkari Ali), Fruit Borer, Stem Borer, and American Bollworm. Suitable for maize, cotton, soybean, chickpeas, pigeon pea (Tur), and all vegetable crops. Ensures fast results, long-lasting protection, and increased crop yield.</p>
+                </div>
+            </div>
+            
+            <!-- Dr. Yoddha -->
+            <div class="card">
+                <div class="poster-container">
+                    <img src="yoddha poster.jpeg" alt="Dr. Yoddha Larvicide Information Poster">
+                </div>
+                <div class="card-content">
+                    <span class="badge larvicide">Dual Action Formula</span>
+                    <h3 class="card-title">Dr. Yoddha</h3>
+                    <div class="dose-highlight">Dose: 25 ML / 15 Liters of Water</div>
+                    <p class="card-desc">An advanced dual-action solution acting as both a Plant Growth Promoter and a Larvicide. Delivers 100% trusted results by effectively controlling all types of crop larvae while actively strengthening roots, promoting lush leaf growth, and maximizing overall yield. Safe and suitable for all crop varieties.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plant Growth & Nutrition Section -->
+        <h2 class="section-title">Plant Growth & Activators</h2>
+        <div class="grid grid-3">
+            <!-- Super Sona -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="super sona.jpeg" alt="Super Sona">
+                </div>
+                <div class="card-content">
+                    <span class="badge growth">Vitality Booster</span>
+                    <h3 class="card-title">Super Sona</h3>
+                    <p class="card-desc">Premium agricultural formulation aimed at boosting overall plant vitality, stimulating robust growth, and enhancing systemic resilience against environmental stress.</p>
+                </div>
+            </div>
+
+            <!-- Cash Plus G -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="Cash plus g.jpeg" alt="Cash Plus G">
+                </div>
+                <div class="card-content">
+                    <span class="badge growth">Yield Enhancer</span>
+                    <h3 class="card-title">Cash Plus G</h3>
+                    <p class="card-desc">Advanced crop enhancer designed to maximize agricultural returns. Optimizes nutrient uptake to significantly improve harvest volume and produce quality.</p>
+                </div>
+            </div>
+
+            <!-- Quick Spredsil -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="quick spredsel.jpeg" alt="Quick Spredsil">
+                </div>
+                <div class="card-content">
+                    <span class="badge activator">Silicon Activator</span>
+                    <h3 class="card-title">Quick Spredsil</h3>
+                    <p class="card-desc">High-quality silicon-based activator and spreader. Specifically designed to enhance the spreading, wetting, and penetration of agricultural sprays for maximum efficacy.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Section: Root Developer -->
+        <div class="featured-card">
+            <div class="featured-header">
+                <h3>Root Developer</h3>
+                <p style="color: var(--text-muted);">Excellent quality potassium humate manufactured from highly pure grade leonardite. Oxidized by nature to deliver highly active humic and fulvic acids.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="spec-box">
+                    <h4>Composition</h4>
+                    <ul class="spec-list">
+                        <li><strong>Humic Acid:</strong> &gt;65%</li>
+                        <li><strong>Fulvic Acid:</strong> 15%</li>
+                        <li><strong>Organic Potash:</strong> &gt;12%</li>
+                        <li><strong>Trace elements:</strong> Q.S. (Total 100%)</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <h4>Key Benefits</h4>
+                    <ul class="spec-list">
+                        <li>Increases root development & nutrient uptake</li>
+                        <li>Promotes better seed germination</li>
+                        <li>Stimulates beneficial microbial activity</li>
+                        <li>Unlocks availability of soil fertilizers</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <h4>Application Guide</h4>
+                    <ul class="spec-list">
+                        <li><strong>250–300 gm / acre:</strong> Cotton, paddy, soybean, maize, wheat, mustard, pulses, groundnut, and vegetables.</li>
+                        <li><strong>500–600 gm / acre:</strong> Sugarcane, banana, grapes, pomegranate, mango, citrus fruit trees.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>Sonpari Plant Science</h2>
+            </div>
+            
+            <div class="footer-contact">
+                <p>Industrial Shopping Complex, STICE,<br>Musalgaon MIDC, Shirdi Road, Sinnar, Dist. Nashik - 422 112</p>
+                <p style="margin-top: 15px;"><strong>Email:</strong> <a href="mailto:sonpariplantsci@yahoo.com">sonpariplantsci@yahoo.com</a></p>
+                <p><strong>Customer Care:</strong> <a href="tel:+918806648454">8806648454</a></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
