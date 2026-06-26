@@ -23,6 +23,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-light);
@@ -81,6 +85,16 @@
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .lic-badge {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--primary-light);
+            font-weight: 600;
+            letter-spacing: 0;
+            text-transform: none;
         }
 
         /* Hero Section */
@@ -152,6 +166,7 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            scroll-margin-top: 100px;
         }
 
         .card:hover {
@@ -215,6 +230,38 @@
             line-height: 1.5;
         }
 
+        /* Product QR Section */
+        .card-qr {
+            background-color: #f8fafc;
+            border-top: 1px solid #f1f5f9;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-qr-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            max-width: 65%;
+        }
+
+        .card-qr-text strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .card-qr img {
+            width: 70px;
+            height: 70px;
+            border-radius: 6px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            padding: 2px;
+        }
+
         /* Footer */
         footer {
             background-color: var(--primary);
@@ -232,7 +279,17 @@
         .footer-brand h2 {
             font-size: 1.5rem;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer-license {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .footer-contact p {
@@ -248,7 +305,8 @@
         }
 
         @media (max-width: 767px) {
-            .nav-container { justify-content: center; }
+            .nav-container { justify-content: center; text-align: center; flex-direction: column; gap: 5px; }
+            .nav-container img { height: 50px; }
             .hero { padding: 40px 15px; }
             .hero h2 { font-size: 1.75rem; }
             .card-title { font-size: 1.25rem; }
@@ -258,7 +316,6 @@
 </head>
 <body>
 
-    <!-- Announcement Bar -->
     <div class="announcement-bar">
         For inquiries regarding stock availability and pricing, please contact us: 
         <br class="mobile-break" style="display: none;"> 
@@ -266,15 +323,16 @@
         <a href="mailto:sonpariplantsci@yahoo.com">✉️ sonpariplantsci@yahoo.com</a>
     </div>
 
-    <!-- Header -->
     <header>
         <div class="nav-container">
             <img src="logo.jpeg" alt="Sonpari Plant Science Logo">
-            <div class="nav-title">Sonpari Plant Science</div>
+            <div class="nav-title">
+                Sonpari Plant Science
+                <span class="lic-badge">Govt. Lic. No: LCBWD0320260068</span>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Banner -->
     <section class="hero">
         <h2>Innovative Agricultural Solutions</h2>
         <p>Providing top-tier crop protection, advanced nutrition, and robust root development for higher-yielding harvests.</p>
@@ -282,25 +340,26 @@
 
     <div class="container">
         
-        <!-- Larvicides Section -->
         <h2 class="section-title">Larvicides & Pest Control (अळीनाशक व कीटकनाशक)</h2>
         <div class="grid grid-2">
             
-            <!-- Punch Bio Miticide (New) -->
-            <div class="card">
+            <div class="card" id="punch">
                 <div class="poster-container">
                     <img src="Punch.jpeg" alt="Punch Bio Miticide Poster">
                 </div>
                 <div class="card-content">
                     <span class="badge larvicide">Bio Miticide</span>
                     <h3 class="card-title">Punch</h3>
-                    <div class="dose-highlight">Dose: 25 ML / 15 Liters of Water[cite: 1]</div>
-                    <p class="card-desc">Punch Bio Miticide uses German-based advanced bio-technology to provide excellent control against sucking pests[cite: 1]. It effectively targets thrips, aphids, jassids, and whiteflies[cite: 1]. This crop-safe formula ensures fast results and long-lasting protection[cite: 1]. It is highly effective on chilli, cotton, papaya, vegetables, flowers, and all other crops, leading to higher yields and excellent quality[cite: 1].</p>
+                    <div class="dose-highlight">Dose: 25 ML / 15 Liters of Water</div>
+                    <p class="card-desc">Punch Bio Miticide uses German-based advanced bio-technology to provide excellent control against sucking pests. It effectively targets thrips, aphids, jassids, and whiteflies. This crop-safe formula ensures fast results and long-lasting protection. It is highly effective on chilli, cotton, papaya, vegetables, flowers, and all other crops, leading to higher yields and excellent quality.</p>
+                </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Punch Bio Miticide.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#punch" alt="QR Code for Punch">
                 </div>
             </div>
 
-            <!-- Dragon Bio Larvicide -->
-            <div class="card">
+            <div class="card" id="dragon">
                 <div class="poster-container">
                     <img src="Dragon Bio larvicide.jpeg" alt="Dragon Bio Larvicide Poster">
                 </div>
@@ -310,10 +369,13 @@
                     <div class="dose-highlight">Dose: 25 ML / Pump</div>
                     <p class="card-desc">Dragon Bio Larvicide utilizes German based advance bio-technology to provide excellent control against all types of larvae. It is highly effective on crops such as maize, cotton, soybean, and pigeon pea (Tur). Expect fast results, robust crop safety, and an increase in overall yield.</p>
                 </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Dragon Bio Larvicide.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#dragon" alt="QR Code for Dragon">
+                </div>
             </div>
 
-            <!-- Thunder Bio Miticide -->
-            <div class="card">
+            <div class="card" id="thunder">
                 <div class="poster-container">
                     <img src="Thunder Larvicide.jpeg" alt="Thunder Bio Miticide Poster">
                 </div>
@@ -322,10 +384,13 @@
                     <h3 class="card-title">Thunder</h3>
                     <p class="card-desc">Thunder Bio Miticide is developed with German based advance bio-technology for highly effective control against all types of sucking pests. It successfully manages aphids (Mava), jassids (Tudtude), thrips (Fhulkide), mites (Koli), whitefly (Pandhari Mashi), and mealybugs. It offers fast results, promotes healthy plant growth, and significantly improves yield quality.</p>
                 </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Thunder Bio Miticide.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#thunder" alt="QR Code for Thunder">
+                </div>
             </div>
 
-            <!-- Oskar -->
-            <div class="card">
+            <div class="card" id="oskar">
                 <div class="poster-container">
                     <img src="Oscar poster.jpeg" alt="Oskar Larvicide Information Poster">
                 </div>
@@ -335,10 +400,13 @@
                     <div class="dose-highlight">Dose: 25 ML / 15 Liters of Water</div>
                     <p class="card-desc">A powerful, broad-spectrum larvicide providing highly effective control against Armyworm (Lashkari Ali), Fruit Borer, Stem Borer, and American Bollworm. Suitable for maize, cotton, soybean, chickpeas, pigeon pea (Tur), and all vegetable crops. Ensures fast results, long-lasting protection, and increased crop yield.</p>
                 </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Oskar Larvicide.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#oskar" alt="QR Code for Oskar">
+                </div>
             </div>
             
-            <!-- Dr. Yoddha -->
-            <div class="card">
+            <div class="card" id="yoddha">
                 <div class="poster-container">
                     <img src="yoddha poster.jpeg" alt="Dr. Yoddha Larvicide Information Poster">
                 </div>
@@ -348,28 +416,65 @@
                     <div class="dose-highlight">Dose: 25 ML / 15 Liters of Water</div>
                     <p class="card-desc">An advanced dual-action solution acting as both a Plant Growth Promoter and a Larvicide. Delivers 100% trusted results by effectively controlling all types of crop larvae while actively strengthening roots, promoting lush leaf growth, and maximizing overall yield. Safe and suitable for all crop varieties.</p>
                 </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Dr. Yoddha.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#yoddha" alt="QR Code for Dr. Yoddha">
+                </div>
             </div>
         </div>
 
-        <!-- Plant Growth & Nutrition Section -->
         <h2 class="section-title">Plant Growth & Activators</h2>
         <div class="grid grid-2">
 
-            <!-- Root Stronger (New) -->
-            <div class="card">
+            <div class="card" id="all-mix">
+                <div class="poster-container">
+                    <img src="All mix.jpeg" alt="All Mix Biostimulant Poster">
+                </div>
+                <div class="card-content">
+                    <span class="badge growth">Bio Stimulant</span>
+                    <h3 class="card-title">All Mix</h3>
+                    <div class="dose-highlight">Foliar: 2-3 ML/L | Drip: 500 ML - 1 L/Acre</div>
+                    <p class="card-desc">An excellent amino-base biostimulant enriched with Ascophyllum Nodosum seaweed extract. It promotes robust root development, lush green leaves, and significantly increases flowering and fruiting. 100% natural, it enhances heat and drought tolerance for all crops ensuring healthy plants and abundant yields.</p>
+                </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to All Mix.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#all-mix" alt="QR Code for All Mix">
+                </div>
+            </div>
+
+            <div class="card" id="biogen">
+                <div class="poster-container">
+                    <img src="Biogen.jpeg" alt="Biogen Poster">
+                </div>
+                <div class="card-content">
+                    <span class="badge growth">Natural Seaweed Extract</span>
+                    <h3 class="card-title">Biogen</h3>
+                    <div class="dose-highlight">Complete Development: Roots to Fruits</div>
+                    <p class="card-desc">Biogen is a premium natural seaweed extract biostimulant that ensures complete plant development. It vigorously promotes root growth, enhances photosynthesis, and helps crops recover quickly from environmental stress (heat, cold, drought) and transplant shock. It significantly improves flowering, fruit size, color, and shine. Highly recommended for vegetables, fruit orchards, pomegranate, onion, sugarcane, turmeric, and ginger.</p>
+                </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Biogen.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#biogen" alt="QR Code for Biogen">
+                </div>
+            </div>
+
+            <div class="card" id="root-stronger">
                 <div class="poster-container">
                     <img src="root stronger.jpeg" alt="Root Stronger Poster">
                 </div>
                 <div class="card-content">
                     <span class="badge growth">Organic Growth Stimulator</span>
                     <h3 class="card-title">Root Stronger</h3>
-                    <div class="dose-highlight">Humic 98% W/W | 100% Natural[cite: 2]</div>
-                    <p class="card-desc">Root Stronger is a 100% natural organic growth stimulator containing Humic 98% W/W[cite: 2]. It promotes vigorous root growth, increases nutrient absorption, and improves overall soil fertility and structure[cite: 2]. This eco-friendly product boosts stress tolerance and increases microbial activity[cite: 2]. It is suitable for all crops, including sugarcane, cotton, onion, grapes, banana, pomegranate, vegetables, and pulses[cite: 2].</p>
+                    <div class="dose-highlight">Humic 98% W/W | 100% Natural</div>
+                    <p class="card-desc">Root Stronger is a 100% natural organic growth stimulator containing Humic 98% W/W. It promotes vigorous root growth, increases nutrient absorption, and improves overall soil fertility and structure. This eco-friendly product boosts stress tolerance and increases microbial activity. It is suitable for all crops.</p>
+                </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Root Stronger.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#root-stronger" alt="QR Code for Root Stronger">
                 </div>
             </div>
             
-            <!-- Root Developer -->
-            <div class="card">
+            <div class="card" id="root-developer">
                 <div class="poster-container">
                     <img src="root developer.jpeg" alt="Root Developer Poster">
                 </div>
@@ -379,10 +484,13 @@
                     <div class="dose-highlight">100% Organic | 1 KG Pack</div>
                     <p class="card-desc">An excellent 100% organic root development promoter suitable for all agriculture and horticulture crops. Enriched with Humic Acid (&gt;65%), Fulvic Acid, and Organic Potash to ensure strong root development, better nutrient uptake, and improved soil health. Can be applied via drip irrigation, spray, or directly to the soil.</p>
                 </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Root Developer.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#root-developer" alt="QR Code for Root Developer">
+                </div>
             </div>
 
-            <!-- Super Sona -->
-            <div class="card">
+            <div class="card" id="super-sona">
                 <div class="poster-container">
                     <img src="super sona.jpeg" alt="Super Sona Bio Granules Poster">
                 </div>
@@ -392,10 +500,13 @@
                     <div class="dose-highlight">Dose: 4 to 8 KG / Acre</div>
                     <p class="card-desc">Super Sona Bio Granules contains Humic Acid 20%, Seaweed 10%, and Amino Acid 10%. It promotes strong root development, vigorous vegetative growth, and abundant yields. It improves nutrient absorption and stress tolerance for crops like sugarcane, soybean, cotton, onion, grapes, and pomegranate. Apply by mixing with soil or fertilizer.</p>
                 </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Super Sona.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#super-sona" alt="QR Code for Super Sona">
+                </div>
             </div>
 
-            <!-- Cash Plus G -->
-            <div class="card">
+            <div class="card" id="cash-plus">
                 <div class="poster-container">
                     <img src="Cash plus g.jpeg" alt="Cash Plus G Poster">
                 </div>
@@ -405,10 +516,13 @@
                     <div class="dose-highlight">Dose: 1.00 to 10 KG / Acre</div>
                     <p class="card-desc">Cash Plus G is a 100% natural formula composed of Amino Acid 1.5%, Seaweed 1.0%, and Humic Acid 1.5%. It makes plant growth vigorous, increases new branches and shoots, and greatly improves flowering and fruiting. It helps retain soil nutrients for a longer period while increasing stress tolerance across all crops and horticulture.</p>
                 </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Cash Plus G.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#cash-plus" alt="QR Code for Cash Plus G">
+                </div>
             </div>
 
-            <!-- Expro-X -->
-            <div class="card">
+            <div class="card" id="expro-x">
                 <div class="poster-container">
                     <img src="Xpro-X.jpeg" alt="Expro-X Poster">
                 </div>
@@ -418,10 +532,13 @@
                     <div class="dose-highlight">Dose: 2-3 ML / Liter (Spray)</div>
                     <p class="card-desc">Expro-X is an excellent plant growth promoter suitable for all crops, featuring Seaweed Extract 10.00% w/v alongside essential amino and humic acids. It stimulates vigorous vegetative growth, ensures abundant flowering and fruiting, and increases stress tolerance. Can also be applied via drip irrigation at 1-2 liters per acre.</p>
                 </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Expro-X.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#expro-x" alt="QR Code for Expro-X">
+                </div>
             </div>
 
-            <!-- Quick Spredsil -->
-            <div class="card">
+            <div class="card" id="quick-spredsil">
                 <div class="poster-container">
                     <img src="quick spredsel.jpeg" alt="Quick Spredsil Poster">
                 </div>
@@ -431,16 +548,20 @@
                     <div class="dose-highlight">Dose: 5 ML / 15 Liters of Water</div>
                     <p class="card-desc">Quick Spredsil is a premium silicon-based activator and quick spreader. Using just 5 ml per 15 liters of water with any weedicide, insecticide, or fungicide delivers 100% perfect results. It significantly increases spread, stickiness, and absorption on leaves, making crops healthy and productive while saving medicine costs.</p>
                 </div>
+                <div class="card-qr">
+                    <div class="card-qr-text"><strong>Scan & Share</strong> Direct link to Quick Spredsil.</div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sonpari-plant-science.github.io/#quick-spredsil" alt="QR Code for Quick Spredsil">
+                </div>
             </div>
         </div>
 
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
                 <h2>Sonpari Plant Science</h2>
+                <span class="footer-license">Govt. of Maharashtra License No: LCBWD0320260068</span>
             </div>
             
             <div class="footer-contact">
