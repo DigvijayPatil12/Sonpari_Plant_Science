@@ -215,51 +215,6 @@
             line-height: 1.5;
         }
 
-        /* Featured Card */
-        .featured-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #e2e8f0;
-            border-left: 6px solid var(--primary);
-            padding: 25px;
-            margin-top: 30px;
-        }
-
-        .featured-header h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .spec-box h4 {
-            color: var(--text-dark);
-            font-size: 1.1rem;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 5px;
-            margin: 20px 0 10px;
-        }
-
-        .spec-list {
-            list-style: none;
-        }
-
-        .spec-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        .spec-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary-light);
-            font-weight: bold;
-        }
-
         /* Footer */
         footer {
             background-color: var(--primary);
@@ -297,7 +252,6 @@
             .hero { padding: 40px 15px; }
             .hero h2 { font-size: 1.75rem; }
             .card-title { font-size: 1.25rem; }
-            .featured-card { padding: 20px 15px; border-left-width: 4px; }
             .announcement-bar { font-size: 0.85rem; padding: 8px 10px; }
         }
     </style>
@@ -388,10 +342,23 @@
         <h2 class="section-title">Plant Growth & Activators</h2>
         <div class="grid grid-2">
             
+            <!-- Root Developer (New Card) -->
+            <div class="card">
+                <div class="poster-container">
+                    <img src="root developer.jpeg" alt="Root Developer Poster">
+                </div>
+                <div class="card-content">
+                    <span class="badge growth">Root Promoter</span>
+                    <h3 class="card-title">Root Developer</h3>
+                    <div class="dose-highlight">100% Organic | 1 KG Pack</div>
+                    <p class="card-desc">An excellent 100% organic root development promoter suitable for all agriculture and horticulture crops. Enriched with Humic Acid (>65%), Fulvic Acid, and Organic Potash to ensure strong root development, better nutrient uptake, and improved soil health. Can be applied via drip irrigation, spray, or directly to the soil.</p>
+                </div>
+            </div>
+
             <!-- Super Sona -->
             <div class="card">
                 <div class="poster-container">
-                    <img src="super sona.jpeg" alt="Super Sona Bio Granules Poster">
+                    <img src="super sona.jpg" alt="Super Sona Bio Granules Poster">
                 </div>
                 <div class="card-content">
                     <span class="badge growth">Plant Growth Promoter</span>
@@ -404,7 +371,7 @@
             <!-- Cash Plus G -->
             <div class="card">
                 <div class="poster-container">
-                    <img src="Cash plus g.jpeg" alt="Cash Plus G Poster">
+                    <img src="Cash plus g.jpg" alt="Cash Plus G Poster">
                 </div>
                 <div class="card-content">
                     <span class="badge growth">100% Natural Growth</span>
@@ -437,44 +404,6 @@
                     <h3 class="card-title">Quick Spredsil</h3>
                     <div class="dose-highlight">Dose: 5 ML / 15 Liters of Water</div>
                     <p class="card-desc">Quick Spredsil is a premium silicon-based activator and quick spreader. Using just 5 ml per 15 liters of water with any weedicide, insecticide, or fungicide delivers 100% perfect results. It significantly increases spread, stickiness, and absorption on leaves, making crops healthy and productive while saving medicine costs.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Featured Section: Root Developer -->
-        <div class="featured-card">
-            <div class="featured-header">
-                <h3>Root Developer</h3>
-                <p style="color: var(--text-muted);">Excellent quality potassium humate manufactured from highly pure grade leonardite. Oxidized by nature to deliver highly active humic and fulvic acids.</p>
-            </div>
-
-            <div class="grid grid-3">
-                <div class="spec-box">
-                    <h4>Composition</h4>
-                    <ul class="spec-list">
-                        <li><strong>Humic Acid:</strong> &gt;65%</li>
-                        <li><strong>Fulvic Acid:</strong> 15%</li>
-                        <li><strong>Organic Potash:</strong> &gt;12%</li>
-                        <li><strong>Trace elements:</strong> Q.S. (Total 100%)</li>
-                    </ul>
-                </div>
-
-                <div class="spec-box">
-                    <h4>Key Benefits</h4>
-                    <ul class="spec-list">
-                        <li>Increases root development & nutrient uptake</li>
-                        <li>Promotes better seed germination</li>
-                        <li>Stimulates beneficial microbial activity</li>
-                        <li>Unlocks availability of soil fertilizers</li>
-                    </ul>
-                </div>
-
-                <div class="spec-box">
-                    <h4>Application Guide</h4>
-                    <ul class="spec-list">
-                        <li><strong>250–300 gm / acre:</strong> Cotton, paddy, soybean, maize, wheat, mustard, pulses, groundnut, and vegetables.</li>
-                        <li><strong>500–600 gm / acre:</strong> Sugarcane, banana, grapes, pomegranate, mango, citrus fruit trees.</li>
-                    </ul>
                 </div>
             </div>
         </div>
